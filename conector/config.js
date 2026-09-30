@@ -31,7 +31,10 @@ module.exports = {
     password: process.env.DB_PASSWORD || '',
     database: process.env.DB_NAME || 'empresa',
     port: Number(process.env.DB_PORT) || 3306,
-    ssl: bool(process.env.DB_SSL, false)
+    ssl: bool(process.env.DB_SSL, false),
+    // Certificado CA del proveedor (Aiven lo da en "Connection information").
+    // Se puede pegar tal cual (multilínea) o con los saltos de línea como \n
+    sslCa: (process.env.DB_SSL_CA || '').replace(/\\n/g, '\n').trim()
   },
   // Crea tablas que falten y aplica correcciones al arrancar (idempotente)
   dbAutoInit: bool(process.env.DB_AUTO_INIT, true),

@@ -14,7 +14,17 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0,
   enableKeepAlive: true,
-  ...(config.db.ssl ? { ssl: { rejectUnauthorized: true } } : {})
+  ...(config.db.ssl ? { ssl: opcionesSSL() } : {})
 });
+
+function opcionesSSL() {
+  if (config.db.sslCa) {
+    // Conexión cifrada y verificando que el servidor es quien dice ser
+    return { ca: config.db.sslCa, rejectUnauthorized: true };
+  }
+  // Sin CA: la conexión va cifrada, pero no se verifica el certificado
+  console.warn('[db] DB_SSL=true sin DB_SSL_CA: conexión cifrada sin verificar el certificado del servidor.');
+  return { rejectUnauthorized: false };
+}
 
 module.exports = pool.promise();
