@@ -1,0 +1,42 @@
+# Blueprint de Render: https://render.com/docs/blueprint-spec
+# Render -> New -> Blueprint -> selecciona el repositorio.
+services:
+  - type: web
+    name: timecp
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: TZ
+        value: Europe/Madrid
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DB_AUTO_INIT
+        value: "true"
+      - key: SEED_TEST_USERS
+        value: "true"
+      - key: ALLOW_PUBLIC_REGISTER
+        value: "true"
+      # Datos de tu MySQL: Render te los pedirá al crear el Blueprint
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_SSL
+        value: "false"
+      # Contraseñas de los usuarios de prueba (opcional: si no, se usan las de por defecto)
+      - key: TEST_ADMIN_PASSWORD
+        sync: false
+      - key: TEST_USER_PASSWORD
+        sync: false

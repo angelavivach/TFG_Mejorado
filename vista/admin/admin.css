@@ -1,0 +1,322 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.sidebar {
+    background: linear-gradient(180deg, #2c3e50 0%, #3498db 100%);
+    box-shadow: 3px 0 15px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+}
+
+.sidebar h3 {
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+}
+
+.nav-link {
+    color: rgba(255,255,255,0.8) !important;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: #fff;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: rgba(255,255,255,0.1);
+    transform: translateX(8px);
+    color: #fff !important;
+}
+
+.nav-link.active::before {
+    transform: scaleY(1);
+}
+
+.content {
+    padding: 2rem;
+    background: #f8f9fa;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.section-title {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%;
+    width: 3px;
+    background: #3498db;
+}
+
+.nav-tabs {
+    border-bottom: 2px solid #dee2e6;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    color: #6c757d !important;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-tabs .nav-link.active {
+    color: #3498db !important;
+    background: transparent;
+}
+
+.nav-tabs .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #3498db;
+}
+
+.table {
+    --bs-table-bg: transparent;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table thead th {
+    background: #3498db;
+    color: white;
+    font-weight: 500;
+    border: none;
+}
+
+.table tbody tr {
+    transition: all 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background: rgba(52, 152, 219, 0.05) !important;
+    transform: translateX(4px);
+}
+
+.btn {
+    border-radius: 8px;
+    padding: 0.5rem 1.25rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #3498db;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #dee2e6;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.badge {
+    padding: 0.5em 0.75em;
+    border-radius: 8px;
+    font-weight: 500;
+}
+.section-content {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease-in-out;
+        height: 0;
+        overflow: hidden;
+    }
+    
+    .section-content.active {
+        opacity: 1;
+        transform: translateY(0);
+        height: auto;
+        overflow: visible;
+    }
+
+    /* Mejora el espaciado entre elementos */
+    .content {
+        padding: 2rem;
+        min-height: calc(100vh - 60px);
+    }
+    
+    /* Añade efecto al menú lateral */
+    .sidebar a {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+    }
+    
+    .sidebar a::after {
+        content: '';
+        position: absolute;
+        left: -5px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 0%;
+        background: #3498db;
+        transition: height 0.3s ease;
+    }
+    
+    .sidebar a.active::after {
+        height: 70%;
+    }
+    /* Agregar estas reglas al final del archivo */
+
+/* Estilos para los elementos padres del menú */
+.menu-parent {
+    cursor: default;
+    pointer-events: none; /* Evita que sea clickeable */
+}
+
+/* Estilo para el hover en los elementos padres */
+.menu-parent:hover {
+    background: rgba(255,255,255,0.1) !important;
+    transform: translateX(8px) !important;
+    color: #fff !important;
+}
+
+/* Quitar el efecto de active en los padres */
+.menu-parent.active {
+    background: transparent !important;
+    transform: none !important;
+}
+
+.menu-parent.active::before {
+    transform: scaleY(0) !important;
+}
+
+/* Mejorar el espaciado en los submenús */
+.submenu {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.submenu .nav-link {
+    padding-left: 1rem !important;
+    margin: 0.25rem 0 !important;
+}
+/* Añadir al final del archivo admin.css */
+
+/* Mejoras para consistencia con User.css */
+.sidebar {
+    background: linear-gradient(180deg, #2c3e50 0%, #1a2a3a 100%);
+}
+
+.nav-link.active {
+    background: rgba(255,255,255,0.15) !important;
+    font-weight: 500;
+}
+
+/* Estilo mejorado para submenús */
+.submenu .nav-link {
+    padding-left: 1.5rem !important;
+    position: relative;
+}
+
+.submenu .nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 50%;
+}
+
+.submenu .nav-link:hover::before,
+.submenu .nav-link.active::before {
+    background-color: #fff;
+}
+
+/* Color destacado para submenús activos */
+.submenu .nav-link.active {
+    color: #a7d6ff !important;
+    font-weight: 500;
+}
+
+/* Efecto hover más suave */
+.nav-link:hover {
+    transform: translateX(5px);
+}
+
+/* Mejor contraste para elementos activos */
+.nav-tabs .nav-link.active {
+    color: #1a73e8 !important;
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link.active::after {
+    background: #1a73e8;
+    height: 3px;
+}
+
+/* Estilo consistente para cards */
+.card {
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Mejor contraste para botones */
+.btn-primary {
+    background-color: #1a73e8;
+}
+
+.btn-primary:hover {
+    background-color: #0d62c9;
+}
