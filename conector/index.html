@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ticket Mensual — Balance</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Balance">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #f7f4ec;
+    --paper-shadow: #e6e1d2;
+    --ink: #23241f;
+    --ink-soft: #6b6a5f;
+    --line: #cfcabb;
+    --green: #2f6d4f;
+    --green-soft: #e4efe7;
+    --red: #b3312c;
+    --red-soft: #f6e6e3;
+    --amber: #b5811a;
+  }
+
+  * { box-sizing: border-box; }
+
+  html,body{
+    margin:0;
+    padding:0;
+    background: #ded8c6;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.03), transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(0,0,0,0.03), transparent 40%);
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+    display:flex;
+    justify-content:center;
+    padding: 32px 14px 60px;
+  }
+
+  .receipt-wrap{
+    width: 100%;
+    max-width: 440px;
+  }
+
+  .tooth-row{
+    height: 12px;
+    width: 100%;
+    background: var(--paper);
+  }
+  .tooth-top{
+    clip-path: polygon(
+      0% 100%, 4% 0%, 8% 100%, 12% 0%, 16% 100%, 20% 0%, 24% 100%, 28% 0%,
+      32% 100%, 36% 0%, 40% 100%, 44% 0%, 48% 100%, 52% 0%, 56% 100%, 60% 0%,
+      64% 100%, 68% 0%, 72% 100%, 76% 0%, 80% 100%, 84% 0%, 88% 100%, 92% 0%,
+      96% 100%, 100% 0%, 100% 100%, 0% 100%
+    );
+  }
+  .tooth-bottom{
+    clip-path: polygon(
+      0% 0%, 4% 100%, 8% 0%, 12% 100%, 16% 0%, 20% 100%, 24% 0%, 28% 100%,
+      32% 0%, 36% 100%, 40% 0%, 44% 100%, 48% 0%, 52% 100%, 56% 0%, 60% 100%,
+      64% 0%, 68% 100%, 72% 0%, 76% 100%, 80% 0%, 84% 100%, 88% 0%, 92% 100%,
+      96% 0%, 100% 100%, 100% 0%, 0% 0%
+    );
+  }
+
+  .receipt{
+    background: var(--paper);
+    box-shadow: 0 18px 40px -12px rgba(30,25,10,0.35), 0 2px 0 var(--paper-shadow);
+    padding: 6px 30px 26px;
+    position: relative;
+  }
+  .receipt::before{
+    content:"";
+    position:absolute; inset:0;
+    pointer-events:none;
+    opacity:0.5;
+    background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, rgba(0,0,0,0.012) 1px, transparent 1px, transparent 3px);
+  }
+
+  header.masthead{
+    text-align:center;
+    padding: 14px 0 10px;
+    border-bottom: 1px dashed var(--line);
+  }
+  header.masthead .store{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size: 1.5rem;
+    letter-spacing: 0.02em;
+  }
+  header.masthead .tagline{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+
+  .month-nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--line);
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .month-nav button{
+    background:none;
+    border: 1px solid var(--ink);
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor:pointer;
+    color: var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    transition: background .15s ease;
+  }
+  .month-nav button:hover{ background: var(--paper-shadow); }
+  .month-nav .month-label{
+    font-weight:600;
+    font-size: 0.95rem;
+    text-transform: capitalize;
+    letter-spacing: 0.03em;
+  }
+
+  .add-panel{
+    padding: 16px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .type-toggle{
+    display:flex;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .type-toggle button{
+    flex:1;
+    padding: 8px 0;
+    font-family:'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    border: 1px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all .15s ease;
+  }
+  .type-toggle button.active[data-type="ingreso"]{
+    background: var(--green); border-color: var(--green); color:#fff;
+  }
+  .type-toggle button.active[data-type="gasto"]{
+    background: var(--red); border-color: var(--red); color:#fff;
+  }
+
+  .form-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .form-grid .full{ grid-column: 1 / -1; }
+
+  .form-grid label{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 3px;
+  }
+  .form-grid input, .form-grid select{
+    width:100%;
+    border: 1px solid var(--line);
+    background: #fffdf8;
+    padding: 7px 8px;
+    font-family:'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: var(--ink);
+    border-radius: 3px;
+  }
+  .form-grid input:focus, .form-grid select:focus{
+    outline: 2px solid var(--amber);
+    outline-offset: 1px;
+  }
+
+  .add-btn{
+    margin-top: 12px;
+    width: 100%;
+    padding: 10px 0;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    border-radius: 3px;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: transform .1s ease, background .15s ease;
+  }
+  .add-btn:hover{ background:#3a3b33; }
+  .add-btn:active{ transform: scale(0.98); }
+
+  .items{
+    padding: 14px 0 4px;
+  }
+  .items .empty{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    text-align:center;
+    padding: 20px 0;
+  }
+
+  .item-row{
+    display:flex;
+    align-items:baseline;
+    gap: 6px;
+    padding: 6px 0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    position: relative;
+  }
+  .item-row .desc{
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .item-row .cat{
+    color: var(--ink-soft);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .item-row .leader{
+    flex: 1;
+    border-bottom: 1px dotted var(--line);
+    position: relative;
+    top: -3px;
+    min-width: 10px;
+  }
+  .item-row .amount{
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .item-row .amount.ingreso{ color: var(--green); }
+  .item-row .amount.gasto{ color: var(--red); }
+  .item-row .del{
+    background:none;
+    border:none;
+    color: var(--ink-soft);
+    cursor:pointer;
+    font-size: 1rem;
+    padding: 2px 2px 2px 6px;
+    opacity: 0.55;
+    transition: opacity .15s ease, color .15s ease;
+  }
+  .item-row:hover .del{ opacity: 1; }
+  .item-row .del:hover, .item-row .del:active{ color: var(--red); opacity: 1; }
+
+  .totals{
+    border-top: 1px dashed var(--line);
+    margin-top: 8px;
+    padding-top: 12px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+  }
+  .totals .line{
+    display:flex;
+    justify-content: space-between;
+    padding: 3px 0;
+  }
+  .totals .line.ingresos .val{ color: var(--green); }
+  .totals .line.gastos .val{ color: var(--red); }
+
+  .category-summary{
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line);
+  }
+  .category-summary h3{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+  }
+  .cat-bar-row{
+    margin-bottom: 8px;
+  }
+  .cat-bar-row .cat-label{
+    display:flex;
+    justify-content: space-between;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    margin-bottom: 3px;
+  }
+  .cat-bar-track{
+    height: 5px;
+    background: var(--paper-shadow);
+    border-radius: 3px;
+    overflow:hidden;
+  }
+  .cat-bar-fill{
+    height: 100%;
+    background: var(--red);
+    border-radius: 3px;
+  }
+
+  .stamp-zone{
+    display:flex;
+    justify-content:center;
+    padding: 22px 0 6px;
+  }
+  .stamp{
+    width: 168px;
+    height: 168px;
+    border-radius: 50%;
+    border: 3px solid currentColor;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    transform: rotate(-9deg);
+    mix-blend-mode: multiply;
+    font-family:'Space Grotesk', sans-serif;
+    position: relative;
+  }
+  .stamp::before{
+    content:"";
+    position:absolute;
+    inset: 8px;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+  }
+  .stamp.positivo{ color: var(--green); }
+  .stamp.negativo{ color: var(--red); }
+  .stamp .label{
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .stamp .amount{
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .stamp .sub{
+    font-size: 0.56rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 4px;
+    opacity: 0.85;
+  }
+
+  footer.foot{
+    text-align:center;
+    padding: 14px 0 4px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .status-msg{
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    padding: 6px 0 0;
+    min-height: 16px;
+  }
+
+  @media (max-width: 380px){
+    .receipt{ padding: 6px 18px 22px; }
+    .stamp{ width: 140px; height: 140px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="receipt-wrap">
+  <div class="tooth-row tooth-top"></div>
+  <div class="receipt">
+
+    <header class="masthead">
+      <div class="store">TICKET MENSUAL</div>
+      <div class="tagline">Nómina &amp; Gastos</div>
+    </header>
+
+    <div class="month-nav">
+      <button id="prevMonth" aria-label="Mes anterior">‹</button>
+      <div class="month-label" id="monthLabel">—</div>
+      <button id="nextMonth" aria-label="Mes siguiente">›</button>
+    </div>
+
+    <div class="add-panel">
+      <div class="type-toggle">
+        <button type="button" data-type="ingreso" id="btnIngreso">+ Ingreso</button>
+        <button type="button" data-type="gasto" id="btnGasto" class="active">− Gasto</button>
+      </div>
+
+      <div class="form-grid">
+        <div class="full">
+          <label for="descInput">Concepto</label>
+          <input type="text" id="descInput" placeholder="p. ej. Supermercado">
+        </div>
+        <div id="catField">
+          <label for="catInput">Categoría</label>
+          <select id="catInput">
+            <option>Vivienda</option>
+            <option>Comida</option>
+            <option>Transporte</option>
+            <option>Ocio</option>
+            <option>Salud</option>
+            <option>Suscripciones</option>
+            <option>Otros</option>
+          </select>
+        </div>
+        <div>
+          <label for="dateInput">Fecha</label>
+          <input type="date" id="dateInput">
+        </div>
+        <div class="full">
+          <label for="amountInput">Importe (€)</label>
+          <input type="number" id="amountInput" placeholder="0,00" step="0.01" min="0">
+        </div>
+      </div>
+
+      <button class="add-btn" id="addBtn">Añadir al ticket</button>
+      <div class="status-msg" id="statusMsg"></div>
+    </div>
+
+    <div class="items" id="itemsList">
+      <div class="empty">Cargando…</div>
+    </div>
+
+    <div class="totals">
+      <div class="line ingresos"><span>Total ingresos</span><span class="val" id="totalIngresos">0,00 €</span></div>
+      <div class="line gastos"><span>Total gastos</span><span class="val" id="totalGastos">0,00 €</span></div>
+    </div>
+
+    <div class="category-summary" id="catSummary">
+      <h3>Gastos por categoría</h3>
+      <div id="catBars"></div>
+    </div>
+
+    <div class="stamp-zone">
+      <div class="stamp positivo" id="stamp">
+        <div class="label">Saldo</div>
+        <div class="amount" id="stampAmount">0,00 €</div>
+        <div class="sub" id="stampSub">equilibrado</div>
+      </div>
+    </div>
+
+    <footer class="foot">Los datos se guardan automáticamente en este dispositivo</footer>
+  </div>
+  <div class="tooth-row tooth-bottom"></div>
+</div>
+
+<script>
+(function(){
+  const STORAGE_KEY = 'balance-entries';
+  let entries = [];
+  let currentType = 'gasto';
+  let viewDate = new Date();
+  viewDate.setDate(1);
+
+  const els = {
+    monthLabel: document.getElementById('monthLabel'),
+    prevMonth: document.getElementById('prevMonth'),
+    nextMonth: document.getElementById('nextMonth'),
+    btnIngreso: document.getElementById('btnIngreso'),
+    btnGasto: document.getElementById('btnGasto'),
+    catField: document.getElementById('catField'),
+    descInput: document.getElementById('descInput'),
+    catInput: document.getElementById('catInput'),
+    dateInput: document.getElementById('dateInput'),
+    amountInput: document.getElementById('amountInput'),
+    addBtn: document.getElementById('addBtn'),
+    statusMsg: document.getElementById('statusMsg'),
+    itemsList: document.getElementById('itemsList'),
+    totalIngresos: document.getElementById('totalIngresos'),
+    totalGastos: document.getElementById('totalGastos'),
+    catBars: document.getElementById('catBars'),
+    catSummary: document.getElementById('catSummary'),
+    stamp: document.getElementById('stamp'),
+    stampAmount: document.getElementById('stampAmount'),
+    stampSub: document.getElementById('stampSub'),
+  };
+
+  const MESES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+
+  function fmtEUR(n){
+    return n.toLocaleString('es-ES', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' €';
+  }
+
+  function monthKey(d){
+    return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0');
+  }
+
+  function todayISO(){
+    const d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+  }
+
+  els.dateInput.value = todayISO();
+
+  function setType(t){
+    currentType = t;
+    els.btnIngreso.classList.toggle('active', t === 'ingreso');
+    els.btnGasto.classList.toggle('active', t === 'gasto');
+    els.catField.style.display = (t === 'gasto') ? 'block' : 'none';
+  }
+  els.btnIngreso.addEventListener('click', () => setType('ingreso'));
+  els.btnGasto.addEventListener('click', () => setType('gasto'));
+  setType('gasto');
+
+  async function loadEntries(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      entries = raw ? JSON.parse(raw) : [];
+    }catch(e){
+      entries = [];
+    }
+    render();
+  }
+
+  async function saveEntries(){
+    try{
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+    }catch(e){
+      showStatus('No se pudo guardar en este dispositivo.', true);
+    }
+  }
+
+  let statusTimer = null;
+  function showStatus(msg, isError){
+    els.statusMsg.textContent = msg;
+    els.statusMsg.style.color = isError ? 'var(--red)' : 'var(--ink-soft)';
+    clearTimeout(statusTimer);
+    statusTimer = setTimeout(() => { els.statusMsg.textContent = ''; }, 2500);
+  }
+
+  function currentMonthEntries(){
+    const key = monthKey(viewDate);
+    return entries.filter(e => e.date && e.date.slice(0,7) === key)
+      .sort((a,b) => a.date.localeCompare(b.date));
+  }
+
+  function render(){
+    const label = MESES[viewDate.getMonth()] + ' ' + viewDate.getFullYear();
+    els.monthLabel.textContent = label;
+
+    const monthEntries = currentMonthEntries();
+
+    if(monthEntries.length === 0){
+      els.itemsList.innerHTML = '<div class="empty">Sin movimientos este mes todavía</div>';
+    } else {
+      els.itemsList.innerHTML = monthEntries.map(e => {
+        const day = e.date.slice(8,10);
+        const sign = e.type === 'ingreso' ? '+' : '−';
+        const catTag = e.type === 'gasto' ? '<span class="cat">' + escapeHtml(e.category || 'Otros') + '</span> · ' : '';
+        return '<div class="item-row" data-id="' + e.id + '">' +
+          '<span class="desc">' + day + '/' + (viewDate.getMonth()+1).toString().padStart(2,'0') + ' — ' + catTag + escapeHtml(e.desc) + '</span>' +
+          '<span class="leader"></span>' +
+          '<span class="amount ' + e.type + '">' + sign + fmtEUR(e.amount) + '</span>' +
+          '<button class="del" data-id="' + e.id + '" aria-label="Eliminar">✕</button>' +
+          '</div>';
+      }).join('');
+    }
+
+    const totalIngresos = monthEntries.filter(e=>e.type==='ingreso').reduce((s,e)=>s+e.amount,0);
+    const totalGastos = monthEntries.filter(e=>e.type==='gasto').reduce((s,e)=>s+e.amount,0);
+    els.totalIngresos.textContent = fmtEUR(totalIngresos);
+    els.totalGastos.textContent = fmtEUR(totalGastos);
+
+    const gastosByCat = {};
+    monthEntries.filter(e=>e.type==='gasto').forEach(e => {
+      const c = e.category || 'Otros';
+      gastosByCat[c] = (gastosByCat[c] || 0) + e.amount;
+    });
+    const catEntries = Object.entries(gastosByCat).sort((a,b)=>b[1]-a[1]);
+    if(catEntries.length === 0){
+      els.catSummary.style.display = 'none';
+    } else {
+      els.catSummary.style.display = 'block';
+      const max = catEntries[0][1];
+      els.catBars.innerHTML = catEntries.map(([cat, val]) => {
+        const pct = max > 0 ? Math.round((val/max)*100) : 0;
+        return '<div class="cat-bar-row">' +
+          '<div class="cat-label"><span>' + escapeHtml(cat) + '</span><span>' + fmtEUR(val) + '</span></div>' +
+          '<div class="cat-bar-track"><div class="cat-bar-fill" style="width:' + pct + '%"></div></div>' +
+          '</div>';
+      }).join('');
+    }
+
+    const saldo = totalIngresos - totalGastos;
+    els.stampAmount.textContent = fmtEUR(Math.abs(saldo));
+    if(saldo > 0){
+      els.stamp.className = 'stamp positivo';
+      els.stampSub.textContent = 'saldo positivo';
+    } else if(saldo < 0){
+      els.stamp.className = 'stamp negativo';
+      els.stampSub.textContent = 'saldo negativo';
+    } else {
+      els.stamp.className = 'stamp positivo';
+      els.stampSub.textContent = 'equilibrado';
+    }
+
+    document.querySelectorAll('.del').forEach(btn => {
+      btn.addEventListener('click', onDelete);
+    });
+  }
+
+  function escapeHtml(str){
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  async function onDelete(ev){
+    const id = ev.currentTarget.getAttribute('data-id');
+    entries = entries.filter(e => String(e.id) !== String(id));
+    render();
+    await saveEntries();
+    showStatus('Movimiento eliminado');
+  }
+
+  els.addBtn.addEventListener('click', async () => {
+    const desc = els.descInput.value.trim();
+    const amount = parseFloat(els.amountInput.value);
+    const date = els.dateInput.value || todayISO();
+
+    if(!desc){
+      showStatus('Escribe un concepto', true);
+      els.descInput.focus();
+      return;
+    }
+    if(!amount || amount <= 0){
+      showStatus('Introduce un importe válido', true);
+      els.amountInput.focus();
+      return;
+    }
+
+    const entry = {
+      id: Date.now() + '-' + Math.random().toString(36).slice(2,7),
+      type: currentType,
+      desc: desc,
+      category: currentType === 'gasto' ? els.catInput.value : null,
+      amount: Math.round(amount * 100) / 100,
+      date: date,
+    };
+
+    entries.push(entry);
+
+    // Jump view to the month of the new entry so the user sees it land
+    const [y,m] = date.split('-').map(Number);
+    viewDate = new Date(y, m-1, 1);
+
+    render();
+    els.descInput.value = '';
+    els.amountInput.value = '';
+    els.descInput.focus();
+    await saveEntries();
+    showStatus('Movimiento guardado');
+  });
+
+  els.prevMonth.addEventListener('click', () => {
+    viewDate.setMonth(viewDate.getMonth()-1);
+    render();
+  });
+  els.nextMonth.addEventListener('click', () => {
+    viewDate.setMonth(viewDate.getMonth()+1);
+    render();
+  });
+
+  loadEntries();
+})();
+</script>
+
+</body>
+</html>
